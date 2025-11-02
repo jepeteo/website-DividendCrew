@@ -161,7 +161,7 @@ export default function Home() {
                     <div className="font-semibold mb-1">
                       Monthly Portfolio Updates
                     </div>
-                    <div className="text-gray-300 text-sm">
+                    <div className="text-white/90 text-sm">
                       See every dividend payment and investment decision
                     </div>
                   </div>
@@ -172,7 +172,7 @@ export default function Home() {
                     <div className="font-semibold mb-1">
                       Stock Analysis & Tips
                     </div>
-                    <div className="text-gray-300 text-sm">
+                    <div className="text-white/90 text-sm">
                       UK dividend stock research delivered weekly
                     </div>
                   </div>
@@ -183,7 +183,7 @@ export default function Home() {
                     <div className="font-semibold mb-1">
                       Free Tracking Spreadsheets
                     </div>
-                    <div className="text-gray-300 text-sm">
+                    <div className="text-white/90 text-sm">
                       Download tools to manage your dividend portfolio
                     </div>
                   </div>
@@ -211,7 +211,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Link href="/guides/getting-started" className="group">
+            <Link href="/guides" className="group">
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 h-full hover:border-[#16A085] hover:shadow-lg transition-all">
                 <div className="w-12 h-12 bg-[#16A085]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#16A085] transition-colors">
                   <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -227,7 +227,7 @@ export default function Home() {
                 </p>
               </div>
             </Link>
-            <Link href="/guides/dividend-tax-uk" className="group">
+            <Link href="/guides" className="group">
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 h-full hover:border-[#16A085] hover:shadow-lg transition-all">
                 <div className="w-12 h-12 bg-[#16A085]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#16A085] transition-colors">
                   <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -243,7 +243,7 @@ export default function Home() {
                 </p>
               </div>
             </Link>
-            <Link href="/guides/best-dividend-stocks" className="group">
+            <Link href="/guides" className="group">
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 h-full hover:border-[#16A085] hover:shadow-lg transition-all">
                 <div className="w-12 h-12 bg-[#16A085]/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-[#16A085] transition-colors">
                   <span className="text-2xl group-hover:scale-110 transition-transform">
@@ -290,74 +290,70 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <article className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100">
-              <div className="flex items-center justify-between mb-6">
-                <span className="inline-block px-3 py-1 bg-[#16A085]/10 text-[#16A085] rounded-full text-sm font-semibold">
-                  October 2025
-                </span>
-                <div className="text-right">
-                  <div className="text-sm text-gray-500">
-                    Dividends Received
-                  </div>
-                  <div className="text-3xl font-bold text-[#2ECC71]">
-                    £487.32
-                  </div>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-[#0E2A3B] mb-3">
-                October 2025 Portfolio Update
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Portfolio performance analysis, lessons learned from this
-                month&apos;s dividend payments, and strategy adjustments.
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                <div className="flex gap-4 text-sm text-gray-500">
-                  <span>📊 23 Holdings</span>
-                  <span>📈 +5.2% Growth</span>
-                </div>
-                <Link
-                  href="/dividend-updates/october-2025"
-                  className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold transition-colors"
-                >
-                  Read Update →
-                </Link>
-              </div>
-            </article>
-            <article className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100">
-              <div className="flex items-center justify-between mb-6">
-                <span className="inline-block px-3 py-1 bg-[#16A085]/10 text-[#16A085] rounded-full text-sm font-semibold">
-                  September 2025
-                </span>
-                <div className="text-right">
-                  <div className="text-sm text-gray-500">
-                    Dividends Received
-                  </div>
-                  <div className="text-3xl font-bold text-[#2ECC71]">
-                    £412.88
+            <Link href="/dividend-updates" className="block">
+              <article className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="inline-block px-3 py-1 bg-[#16A085]/10 text-[#16A085] rounded-full text-sm font-semibold">
+                    Latest Update
+                  </span>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500">
+                      Monthly Dividends
+                    </div>
+                    <div className="text-3xl font-bold text-[#2ECC71]">
+                      £487+
+                    </div>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-2xl font-bold text-[#0E2A3B] mb-3">
-                September 2025 Portfolio Update
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                New additions to the portfolio including analysis and
-                comprehensive strategy changes explained in detail.
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                <div className="flex gap-4 text-sm text-gray-500">
-                  <span>📊 21 Holdings</span>
-                  <span>📈 +3.8% Growth</span>
+                <h3 className="text-2xl font-bold text-[#0E2A3B] mb-3">
+                  Latest Portfolio Update
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Portfolio performance analysis, dividend payments, and strategy adjustments. See the full breakdown of holdings and returns.
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                  <div className="flex gap-4 text-sm text-gray-500">
+                    <span>📊 23 Holdings</span>
+                    <span>📈 Growing</span>
+                  </div>
+                  <span className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold transition-colors">
+                    Read Updates →
+                  </span>
                 </div>
-                <Link
-                  href="/dividend-updates/september-2025"
-                  className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold transition-colors"
-                >
-                  Read Update →
-                </Link>
-              </div>
-            </article>
+              </article>
+            </Link>
+            <Link href="/portfolio" className="block">
+              <article className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="inline-block px-3 py-1 bg-[#16A085]/10 text-[#16A085] rounded-full text-sm font-semibold">
+                    Full Portfolio
+                  </span>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500">
+                      YTD Returns
+                    </div>
+                    <div className="text-3xl font-bold text-[#2ECC71]">
+                      +12.5%
+                    </div>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-bold text-[#0E2A3B] mb-3">
+                  View Complete Portfolio
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  See all holdings, allocation percentages, dividend yields, and performance metrics. Complete transparency.
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                  <div className="flex gap-4 text-sm text-gray-500">
+                    <span>� Real Portfolio</span>
+                    <span>� Live Data</span>
+                  </div>
+                  <span className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold transition-colors">
+                    View Portfolio →
+                  </span>
+                </div>
+              </article>
+            </Link>
           </div>
         </div>
       </section>
@@ -374,83 +370,80 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-8 hover:border-[#16A085] hover:shadow-lg transition-all">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-2xl">🏆</span>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-[#2ECC71]">
-                      ★
-                    </span>
-                  ))}
+            <Link href="/reviews" className="block">
+              <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-8 hover:border-[#16A085] hover:shadow-lg transition-all h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl">🏆</span>
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-[#2ECC71]">
+                        ★
+                      </span>
+                    ))}
+                  </div>
                 </div>
+                <h3 className="text-xl font-bold text-[#0E2A3B] mb-3">
+                  Trading 212
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Zero commission trading with excellent dividend reinvestment
+                  features.
+                </p>
+                <span className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold">
+                  Read Review →
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-[#0E2A3B] mb-3">
-                Trading 212
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Zero commission trading with excellent dividend reinvestment
-                features.
-              </p>
-              <Link
-                href="/reviews/trading-212"
-                className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold"
-              >
-                Read Review →
-              </Link>
-            </div>
-            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-8 hover:border-[#16A085] hover:shadow-lg transition-all">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-2xl">💼</span>
-                <div className="flex gap-1">
-                  {[...Array(4)].map((_, i) => (
-                    <span key={i} className="text-[#2ECC71]">
-                      ★
-                    </span>
-                  ))}
-                  <span className="text-gray-300">★</span>
+            </Link>
+            <Link href="/reviews" className="block">
+              <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-8 hover:border-[#16A085] hover:shadow-lg transition-all h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl">💼</span>
+                  <div className="flex gap-1">
+                    {[...Array(4)].map((_, i) => (
+                      <span key={i} className="text-[#2ECC71]">
+                        ★
+                      </span>
+                    ))}
+                    <span className="text-gray-300">★</span>
+                  </div>
                 </div>
+                <h3 className="text-xl font-bold text-[#0E2A3B] mb-3">
+                  Freetrade
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Simple UK investing app with ISA accounts and low fees for
+                  dividend stocks.
+                </p>
+                <span className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold">
+                  Read Review →
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-[#0E2A3B] mb-3">
-                Freetrade
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Simple UK investing app with ISA accounts and low fees for
-                dividend stocks.
-              </p>
-              <Link
-                href="/reviews/freetrade"
-                className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold"
-              >
-                Read Review →
-              </Link>
-            </div>
-            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-8 hover:border-[#16A085] hover:shadow-lg transition-all">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-2xl">🎯</span>
-                <div className="flex gap-1">
-                  {[...Array(4)].map((_, i) => (
-                    <span key={i} className="text-[#2ECC71]">
-                      ★
-                    </span>
-                  ))}
-                  <span className="text-gray-300">★</span>
+            </Link>
+            <Link href="/reviews" className="block">
+              <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-8 hover:border-[#16A085] hover:shadow-lg transition-all h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl">🎯</span>
+                  <div className="flex gap-1">
+                    {[...Array(4)].map((_, i) => (
+                      <span key={i} className="text-[#2ECC71]">
+                        ★
+                      </span>
+                    ))}
+                    <span className="text-gray-300">★</span>
+                  </div>
                 </div>
+                <h3 className="text-xl font-bold text-[#0E2A3B] mb-3">
+                  InvestEngine
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  ETF-focused platform perfect for diversified dividend portfolio
+                  building.
+                </p>
+                <span className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold">
+                  Read Review →
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-[#0E2A3B] mb-3">
-                InvestEngine
-              </h3>
-              <p className="text-gray-600 mb-6">
-                ETF-focused platform perfect for diversified dividend portfolio
-                building.
-              </p>
-              <Link
-                href="/reviews/investengine"
-                className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold"
-              >
-                Read Review →
-              </Link>
-            </div>
+            </Link>
           </div>
           <div className="text-center mt-12">
             <Link href="/reviews">
@@ -469,34 +462,34 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               {/* Left side - Content */}
               <div className="p-12 lg:p-16 text-white">
-                <div className="inline-block mb-6 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
+                <div className="inline-block mb-6 px-3 py-1 bg-[#0E2A3B] rounded-full text-sm font-semibold">
                   100% Free Forever
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                   Free Dividend Tracking Tools
                 </h2>
-                <p className="text-lg mb-8 text-white/90">
+                <p className="text-lg mb-8 text-white">
                   Professional spreadsheets to track dividends, analyze stocks,
                   and plan your financial future.
                 </p>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-8 text-white">
                   <li className="flex items-start gap-3">
                     <span className="text-white text-xl">✓</span>
-                    <span>Portfolio tracker with automatic calculations</span>
+                    <span className="font-medium">Portfolio tracker with automatic calculations</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-white text-xl">✓</span>
-                    <span>Dividend income forecasting tool</span>
+                    <span className="font-medium">Dividend income forecasting tool</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-white text-xl">✓</span>
-                    <span>Tax calculation spreadsheet for UK investors</span>
+                    <span className="font-medium">Tax calculation spreadsheet for UK investors</span>
                   </li>
                 </ul>
                 <Link href="/tools">
                   <Button
                     size="lg"
-                    className="bg-white text-[#16A085] hover:bg-gray-100 shadow-lg"
+                    className="bg-[#0E2A3B] text-white hover:bg-[#0E2A3B]/90 shadow-lg font-semibold"
                   >
                     Download Free Tools →
                   </Button>
@@ -519,12 +512,12 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-[#0E2A3B] text-white">
+      <section className="py-16 bg-[#0E2A3B] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Dividend Journey?
           </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Join the DividendCrew community and start building reliable passive
             income with UK stocks
           </p>
