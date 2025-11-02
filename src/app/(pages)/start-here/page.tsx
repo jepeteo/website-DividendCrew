@@ -37,9 +37,9 @@ export default function StartHerePage() {
               Understand what dividends are, how they're taxed in the UK, and
               why they're a powerful way to build wealth over time.
             </p>
-            <Link href="/guides/dividend-investing-basics">
+            <Link href="/guides">
               <Button variant="secondary" size="md">
-                Read the Guide →
+                Browse Guides →
               </Button>
             </Link>
           </div>

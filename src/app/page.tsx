@@ -309,7 +309,9 @@ export default function Home() {
                   Latest Portfolio Update
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Portfolio performance analysis, dividend payments, and strategy adjustments. See the full breakdown of holdings and returns.
+                  Portfolio performance analysis, dividend payments, and
+                  strategy adjustments. See the full breakdown of holdings and
+                  returns.
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                   <div className="flex gap-4 text-sm text-gray-500">
@@ -329,9 +331,7 @@ export default function Home() {
                     Full Portfolio
                   </span>
                   <div className="text-right">
-                    <div className="text-sm text-gray-500">
-                      YTD Returns
-                    </div>
+                    <div className="text-sm text-gray-500">YTD Returns</div>
                     <div className="text-3xl font-bold text-[#2ECC71]">
                       +12.5%
                     </div>
@@ -341,7 +341,8 @@ export default function Home() {
                   View Complete Portfolio
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  See all holdings, allocation percentages, dividend yields, and performance metrics. Complete transparency.
+                  See all holdings, allocation percentages, dividend yields, and
+                  performance metrics. Complete transparency.
                 </p>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                   <div className="flex gap-4 text-sm text-gray-500">
@@ -436,8 +437,8 @@ export default function Home() {
                   InvestEngine
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  ETF-focused platform perfect for diversified dividend portfolio
-                  building.
+                  ETF-focused platform perfect for diversified dividend
+                  portfolio building.
                 </p>
                 <span className="inline-flex items-center text-[#16A085] hover:text-[#0E2A3B] font-semibold">
                   Read Review →
@@ -475,15 +476,21 @@ export default function Home() {
                 <ul className="space-y-4 mb-8 text-white">
                   <li className="flex items-start gap-3">
                     <span className="text-white text-xl">✓</span>
-                    <span className="font-medium">Portfolio tracker with automatic calculations</span>
+                    <span className="font-medium">
+                      Portfolio tracker with automatic calculations
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-white text-xl">✓</span>
-                    <span className="font-medium">Dividend income forecasting tool</span>
+                    <span className="font-medium">
+                      Dividend income forecasting tool
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-white text-xl">✓</span>
-                    <span className="font-medium">Tax calculation spreadsheet for UK investors</span>
+                    <span className="font-medium">
+                      Tax calculation spreadsheet for UK investors
+                    </span>
                   </li>
                 </ul>
                 <Link href="/tools">
