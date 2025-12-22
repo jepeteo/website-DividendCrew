@@ -34,8 +34,8 @@ export default async function ReviewPage({ params }: Props) {
   }
 
   const rating = post.reviewFields?.rating || 5;
-  const pros = post.reviewFields?.pros?.map((p: any) => p.proItem) || [];
-  const cons = post.reviewFields?.cons?.map((c: any) => c.conItem) || [];
+  const pros = post.reviewFields?.pros?.map((p) => p.proItem) || [];
+  const cons = post.reviewFields?.cons?.map((c) => c.conItem) || [];
   const affiliateLink = post.reviewFields?.affiliateLink || "#";
   const platformName = post.reviewFields?.platformName || post.title;
   const buttonText = post.reviewFields?.buttonText || "Visit Platform";

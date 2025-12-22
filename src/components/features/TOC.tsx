@@ -5,7 +5,7 @@
 
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback, useSyncExternalStore } from "react";
 
 export interface TOCItem {
   id: string;
@@ -17,13 +17,12 @@ export interface TOCProps {
   contentSelector?: string;
 }
 
-export function TOC({ contentSelector = "article" }: TOCProps) {
-  const [items, setItems] = useState<TOCItem[]>([]);
-  const [activeId, setActiveId] = useState<string>("");
-
-  useEffect(() => {
+// Custom hook to extract TOC items from DOM
+function useTOCItems(contentSelector: string): TOCItem[] {
+  const getSnapshot = useCallback(() => {
+    if (typeof window === "undefined") return "[]";
     const content = document.querySelector(contentSelector);
-    if (!content) return;
+    if (!content) return "[]";
 
     const headings = content.querySelectorAll("h2, h3");
     const tocItems: TOCItem[] = [];
@@ -41,24 +40,53 @@ export function TOC({ contentSelector = "article" }: TOCProps) {
       });
     });
 
-    setItems(tocItems);
+    return JSON.stringify(tocItems);
+  }, [contentSelector]);
 
-    // Intersection Observer for active section
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-100px 0px -80% 0px" }
-    );
-
-    headings.forEach((heading) => observer.observe(heading));
-
+  const subscribe = useCallback((callback: () => void) => {
+    // Subscribe to DOM mutations
+    const observer = new MutationObserver(callback);
+    const content = document.querySelector(contentSelector);
+    if (content) {
+      observer.observe(content, { childList: true, subtree: true });
+    }
     return () => observer.disconnect();
   }, [contentSelector]);
+
+  const getServerSnapshot = useCallback(() => "[]", []);
+
+  const itemsJson = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  return JSON.parse(itemsJson) as TOCItem[];
+}
+
+export function TOC({ contentSelector = "article" }: TOCProps) {
+  const items = useTOCItems(contentSelector);
+  const [activeId, setActiveId] = useState<string>("");
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setActiveId(entry.target.id);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const content = document.querySelector(contentSelector);
+    if (!content) return;
+
+    const headings = content.querySelectorAll("h2, h3");
+
+    // Intersection Observer for active section
+    observerRef.current = new IntersectionObserver(handleIntersection, {
+      rootMargin: "-100px 0px -80% 0px",
+    });
+
+    headings.forEach((heading) => observerRef.current?.observe(heading));
+
+    return () => observerRef.current?.disconnect();
+  }, [contentSelector, handleIntersection]);
 
   if (items.length === 0) return null;
 

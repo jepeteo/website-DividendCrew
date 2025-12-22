@@ -31,7 +31,7 @@ export function Card({
   className = "",
   children,
 }: CardProps) {
-  const CardContent = () => (
+  const cardContent = (
     <div
       className={`
         bg-white rounded-lg shadow-md overflow-hidden
@@ -72,10 +72,10 @@ export function Card({
   if (href) {
     return (
       <Link href={href} className="block">
-        <CardContent />
+        {cardContent}
       </Link>
     );
   }
 
-  return <CardContent />;
+  return cardContent;
 }

@@ -4,7 +4,7 @@
  */
 
 import type { Metadata } from 'next';
-import { SITE_CONFIG, SEO_DEFAULTS } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
 import type { Post, Page } from '@/lib/wp/helpers';
 
 /**

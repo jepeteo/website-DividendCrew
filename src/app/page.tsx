@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { NewsletterForm } from "@/components/features/NewsletterForm";
 import Link from "next/link";
 

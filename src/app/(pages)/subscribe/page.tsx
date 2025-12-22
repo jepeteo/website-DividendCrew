@@ -4,7 +4,6 @@
  */
 
 import { NewsletterForm } from "@/components/features/NewsletterForm";
-import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
 import type { Metadata } from "next";

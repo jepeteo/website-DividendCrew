@@ -16,10 +16,10 @@ export default async function DividendUpdatesPage() {
   const updatesData = await getMonthlyUpdates();
 
   // Transform WordPress data
-  const updates = updatesData.map((update: any) => ({
+  const updates = updatesData.map((update) => ({
     month: update.title,
-    income: update.acf?.totalDividends
-      ? `£${update.acf.totalDividends}`
+    income: update.dividendUpdateFields?.totalDividends
+      ? `£${update.dividendUpdateFields.totalDividends}`
       : "£0.00",
     excerpt: update.excerpt || "",
     slug: update.slug,
@@ -29,7 +29,7 @@ export default async function DividendUpdatesPage() {
   const totalYTD =
     updates.length > 0
       ? `£${updates
-          .reduce((sum: number, u: any) => {
+          .reduce((sum: number, u: typeof updates[number]) => {
             const amount = parseFloat(u.income.replace("£", "")) || 0;
             return sum + amount;
           }, 0)

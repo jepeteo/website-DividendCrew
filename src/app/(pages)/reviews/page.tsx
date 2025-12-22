@@ -15,12 +15,12 @@ export default async function ReviewsPage() {
   const reviewsData = await getReviews();
 
   // Transform WordPress data to match ReviewCard props
-  const reviews = reviewsData.map((review: any) => ({
+  const reviews = reviewsData.map((review) => ({
     title: review.title,
     excerpt: review.excerpt || "",
     rating: review.reviewFields?.rating || 5,
-    pros: review.reviewFields?.pros?.map((p: any) => p.proItem) || [],
-    cons: review.reviewFields?.cons?.map((c: any) => c.conItem) || [],
+    pros: review.reviewFields?.pros?.map((p) => p.proItem) || [],
+    cons: review.reviewFields?.cons?.map((c) => c.conItem) || [],
     affiliateLink: review.reviewFields?.affiliateLink || "#",
     reviewLink: `/reviews/${review.slug}`,
   }));

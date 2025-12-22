@@ -95,18 +95,31 @@ export interface Page {
 /**
  * Transform raw GraphQL post to typed Post
  */
-function transformPost(rawPost: any): Post {
+function transformPost(rawPost: RawPost): Post {
   return {
     ...rawPost,
-    featuredImage: rawPost.featuredImage?.node?.sourceUrl || rawPost.featuredImage
+    featuredImage: rawPost.featuredImage?.node?.sourceUrl || undefined
   };
+}
+
+interface RawPost extends Omit<Post, 'featuredImage'> {
+  featuredImage?: {
+    node?: {
+      sourceUrl: string;
+    };
+  };
+}
+
+interface RawCategory {
+  slug: string;
+  name: string;
 }
 
 /**
  * Get all posts
  */
 export async function getAllPosts(first = 10): Promise<Post[]> {
-  const data = await fetchAPI<{ posts: { nodes: any[] } }>(GET_ALL_POSTS, {
+  const data = await fetchAPI<{ posts: { nodes: RawPost[] } }>(GET_ALL_POSTS, {
     first,
   });
   return data.posts.nodes.map(transformPost);
@@ -116,7 +129,7 @@ export async function getAllPosts(first = 10): Promise<Post[]> {
  * Get post by slug (optionally filtered by category)
  */
 export async function getPostBySlug(slug: string, category?: string): Promise<Post | null> {
-  const data = await fetchAPI<{ post: any }>(GET_POST_BY_SLUG, { slug });
+  const data = await fetchAPI<{ post: RawPost }>(GET_POST_BY_SLUG, { slug });
   const rawPost = data.post || null;
   
   if (!rawPost) return null;
@@ -124,7 +137,7 @@ export async function getPostBySlug(slug: string, category?: string): Promise<Po
   // If category filter is provided, check if post belongs to that category
   if (category) {
     const hasCategory = rawPost.categories?.nodes?.some(
-      (cat: any) => cat.slug === category || cat.name.toLowerCase().replace(/\s+/g, '-') === category
+      (cat: RawCategory) => cat.slug === category || cat.name.toLowerCase().replace(/\s+/g, '-') === category
     );
     if (!hasCategory) {
       return null;
@@ -134,7 +147,7 @@ export async function getPostBySlug(slug: string, category?: string): Promise<Po
   // Transform featuredImage to simple string if it exists
   const post: Post = {
     ...rawPost,
-    featuredImage: rawPost.featuredImage?.node?.sourceUrl || rawPost.featuredImage
+    featuredImage: rawPost.featuredImage?.node?.sourceUrl || undefined
   };
   
   return post;
@@ -147,7 +160,7 @@ export async function getPostsByCategory(
   category: string,
   first = 10
 ): Promise<Post[]> {
-  const data = await fetchAPI<{ posts: { nodes: any[] } }>(
+  const data = await fetchAPI<{ posts: { nodes: RawPost[] } }>(
     GET_POSTS_BY_CATEGORY,
     { category, first }
   );
@@ -158,7 +171,7 @@ export async function getPostsByCategory(
  * Get guides
  */
 export async function getGuides(first = 10): Promise<Post[]> {
-  const data = await fetchAPI<{ posts: { nodes: any[] } }>(GET_GUIDES, {
+  const data = await fetchAPI<{ posts: { nodes: RawPost[] } }>(GET_GUIDES, {
     first,
   });
   return data.posts.nodes.map(transformPost);
@@ -168,7 +181,7 @@ export async function getGuides(first = 10): Promise<Post[]> {
  * Get reviews
  */
 export async function getReviews(first = 10): Promise<Post[]> {
-  const data = await fetchAPI<{ posts: { nodes: any[] } }>(GET_REVIEWS, {
+  const data = await fetchAPI<{ posts: { nodes: RawPost[] } }>(GET_REVIEWS, {
     first,
   });
   return data.posts.nodes.map(transformPost);
@@ -178,7 +191,7 @@ export async function getReviews(first = 10): Promise<Post[]> {
  * Get monthly updates
  */
 export async function getMonthlyUpdates(first = 12): Promise<Post[]> {
-  const data = await fetchAPI<{ posts: { nodes: any[] } }>(
+  const data = await fetchAPI<{ posts: { nodes: RawPost[] } }>(
     GET_MONTHLY_UPDATES,
     { first }
   );
